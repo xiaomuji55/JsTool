@@ -38,7 +38,7 @@
         /**说明：自定义滚轮函数
          * 
          * @param {* DOM} obj DOM对象
-         * @param {* 函数} func 要执行的函数
+         * @param {* 函数} Fn 要执行的函数
          *      注:函数有俩个参数    
          *          1. event
          *          2. 每次滚动的数值 
@@ -48,7 +48,7 @@
          *        为true 则不阻止
          *        默认为 不阻止
          */
-        mousewheel: function(obj , func){
+        mousewheel: function(obj , Fn){
             function eFn(e) {
                 e = e||window.event;
                 if ( Fn.call(this,e,e.wheelDelta/120||-e.detail/3) === false )
