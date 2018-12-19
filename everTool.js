@@ -38,6 +38,29 @@
         },
 
         /**
+         * 说明：数组对象排序  正序
+         *
+         * @param {*} field1  根据哪个字段排序  必填
+         * @param {*} field2  如果field1相等 这根据 field2 排序   非必填
+         * @param {*} sort  排序类型  asc正序  desc倒序
+         * @returns  新数组
+         */
+        sortBy(field1, field2, sort) {
+            sort = sort || 'asc';
+            return function(a,b) {
+                if(sort === 'asc'){
+                    if(a[field1] == b[field1]) return a[field2] - b[field2];
+                    return a[field1] - b[field1];
+                }else if(sort === 'desc'){
+                    if(a[field1] == b[field1]) return b[field2] - a[field2];
+                    return b[field1] - a[field1];
+                }else{
+                    console.error('“sort” 参数不正确！');
+                }
+            }
+        },
+
+        /**
          * 各种判断
          */
         is: {
